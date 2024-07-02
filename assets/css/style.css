@@ -357,7 +357,7 @@ body.active { overflow: hidden; }
 
 .logo a {
   color: var(--color-primary);
-  font-family: var(--ff-saira-stencil-one);
+  font-family: var(--ff-roboto);
 }
 
 .logo span {
@@ -555,6 +555,19 @@ main { overflow-x: hidden; }
   margin: 0;
 }
 
+.card-category {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* Putih */
+  margin: -10px 0;
+  text-align: left;
+  grid-column: span 2;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+
 .card {
   background: #222; /* Hitam */
   color: #ffffff; /* Putih */
@@ -739,69 +752,79 @@ main { overflow-x: hidden; }
 
 .project { padding-block: var(--section-padding); }
 
-.project-list > li { margin-bottom: 25px; }
 
-.project-list{
-  column-count: 3;
+
+
+/* GALERY VERSI 2 */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px; /* Jarak antar grid items */
+  width: 100%; /* Lebar 100% dari parent element */
 }
 
-.project-card {
+.item {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: var(--radius-12);
-  box-shadow: 2px 4px 6px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.project-card::after {
-  content: "";
+.item img {
+  display: block;
+  max-width: 150%;
+  max-height: 150%;
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  transition: var(--transition-1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.project-card:is(:hover, :focus)::after {
-  background: hsla(0, 0%, 100%, 0.1);
-  backdrop-filter: blur(0.5px);
-}
 
-.project-card .card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-}
-
-.project-card .card-title { margin-bottom: 10px; }
-
-.project-card :is(.card-title, .publish-date) {
-  background: var(--bg-primary);
-  padding: 6px 12px;
-  width: max-content;
-  box-shadow: var(--shadow-1);
-  transform: translateY(20px);
-  opacity: 0;
-  transition: var(--transition-1);
-}
-
-.project-card .publish-date {
-  font-size: var(--fs-6);
-  color: var(--color-primary);
-  transition-delay: 0s;
-}
-
-.project-card:is(:hover, :focus) :is(.card-title, .publish-date) {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.project-card:is(:hover, :focus) .publish-date { transition-delay: 0.1s; }
-
-.w-1001:hover {
-  transform: translateY(-5px);
+.item img:hover{
+  cursor: pointer;
   filter: grayscale(45%);
 }
+
+.item:hover{
+  transform: translateY(-5px);
+}
+
+/* Contoh tambahan untuk menampilkan grid items */
+.item:nth-child(odd) {
+  background-color: #e0e0e0;
+}
+
+/* Membuat item pertama lebih lebar dua kali */
+.item1 {
+  grid-column: span 2;
+  aspect-ratio: auto; /* Menonaktifkan aspect-ratio untuk item pertama */
+  height: 100%; /* Menetapkan tinggi penuh untuk item pertama */
+}
+
+/* Membuat item keempat lebih lebar dan lebih tinggi dua kali */
+.item4 {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto; /* Menonaktifkan aspect-ratio untuk item keempat */
+  height: 100%; /* Menetapkan tinggi penuh untuk item keempat */
+}
+
+/* Membuat item keenam lebih lebar dua kali */
+.item6 {
+  grid-column: span 2;
+  aspect-ratio: auto; /* Menonaktifkan aspect-ratio untuk item keenam */
+  height: 100%; /* Menetapkan tinggi penuh untuk item keenam */
+}
+
+
+
 
 /*-----------------------------------*\
  * #MODE ZOOM
@@ -910,6 +933,23 @@ main { overflow-x: hidden; }
   width: 105%;
   margin-bottom: 40px;
 }
+.hero-content {
+  margin-top: -12px;
+}
+.card-category {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* Putih */
+  margin: -10px 0;
+  text-align: left;
+  grid-column: span 2;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+}
+.card-category.wisuda {
+  display: none;
+}
  }
 
 
@@ -927,7 +967,7 @@ main { overflow-x: hidden; }
   .section-title { max-width: 380px; }
 
   .hero-content {
-    margin-top: -120px;
+    margin-top: -12px;
   }
 
 
@@ -966,7 +1006,7 @@ main { overflow-x: hidden; }
   .section-title { max-width: 430px; }
 
   .hero-content {
-    margin-top: -120px;
+    margin-top: -12px;
   }
 
   /**
@@ -1125,13 +1165,14 @@ main { overflow-x: hidden; }
     height: 100%;
     width: auto;
     margin-inline: auto;
+    scale: 0.8;
   }
 
   .hero-content {
     --color-primary: var(--white);
     position: absolute;
     
-    top: 50%;
+    top: 80%;
     filter: drop-shadow(2px 4px 10px var(--black));
   }
 
@@ -1258,7 +1299,13 @@ main { overflow-x: hidden; }
     margin-left: 0;
   }
 
-
+  /* PRICE */
+  .card-category.wisuda {
+    display: unset;
+  }
+  .card-category.wisudakecil {
+    display: none;
+  }
 
   /**
    * CONTACT
@@ -1308,7 +1355,8 @@ main { overflow-x: hidden; }
   .hero-content { 
     max-width: 480px; /** Default 450px **/
     margin-left: 350px; /** Hapus pas media query pertama **/
-    margin-top: -80px; /** Hapus pas media query pertama **/
+    margin-top: -80px;
+    top: 50%; /** Hapus pas media query pertama **/
   }
 
   .hero-title {
@@ -1321,6 +1369,15 @@ main { overflow-x: hidden; }
     float: right; /** Default tidak ada **/
     margin-top: 100px;
   }
+    .hero img {
+    height: 100%;
+    width: auto;
+    margin-inline: auto;
+    margin-left: -150px;
+    margin-top: -30px;
+    scale: 0.8;
+  }
+
 }
 /**
  * responsive for larger than 1200px screen
@@ -1346,6 +1403,15 @@ main { overflow-x: hidden; }
   .hero-social-list { left: -80px; }
 
   .scroll-down { right: -80px; }
+
+  .hero img {
+    height: 100%;
+    width: auto;
+    margin-inline: auto;
+    margin-left: -200px;
+    margin-top: -30px;
+    scale: 0.8;
+  }
 
 
 
