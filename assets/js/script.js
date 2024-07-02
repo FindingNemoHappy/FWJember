@@ -10,7 +10,7 @@ const loadingElement = document.querySelector("[data-loading]");
 const preloadTimeout = setTimeout(() => {
   loadingElement.classList.add("loaded");
   document.body.classList.remove("active");
-}, 5000); // 5000 milidetik = 5 detik
+}, 3000); // 5000 milidetik = 5 detik
 
 window.addEventListener("load", function () {
   // Jika halaman selesai dimuat sebelum 5 detik, pastikan kelas "active" tetap dihapus dan timer direset
