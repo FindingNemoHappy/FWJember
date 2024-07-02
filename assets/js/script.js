@@ -4,19 +4,15 @@
 
 
 // PRELOADING
-
 const loadingElement = document.querySelector("[data-loading]");
 
 window.addEventListener("load", function () {
-  // Tambahkan delay selama 5 detik sebelum menghapus preloader
-  setTimeout(function() {
+  // Tambahkan kelas "loaded" dan hapus kelas "active" setelah 5 detik
+  setTimeout(() => {
     loadingElement.classList.add("loaded");
     document.body.classList.remove("active");
-  }, 3000);
+  }, 3000); // 5000 milidetik = 5 detik
 });
-
-document.body.classList.add("active"); // Tambahkan class active saat preloading dimulai
-
 
 /**
  * element toggle function
