@@ -8,9 +8,14 @@
 const loadingElement = document.querySelector("[data-loading]");
 
 window.addEventListener("load", function () {
-  loadingElement.classList.add("loaded");
-  document.body.classList.remove("active");
+  // Tambahkan delay selama 5 detik sebelum menghapus preloader
+  setTimeout(function() {
+    loadingElement.classList.add("loaded");
+    document.body.classList.remove("active");
+  }, 3000);
 });
+
+document.body.classList.add("active"); // Tambahkan class active saat preloading dimulai
 
 
 /**
