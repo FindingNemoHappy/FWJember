@@ -562,7 +562,7 @@ main { overflow-x: hidden; }
   margin: -10px 0;
   text-align: left;
   grid-column: span 2;
-  border: 2px solid #ffffff;
+  /* border: 2px solid #ffffff; */
   border-radius: 15px;
   padding: 10px;
 }
@@ -844,7 +844,30 @@ main { overflow-x: hidden; }
 }
 
 
+/*-----------------------------------*\
+ * #ICON ATAS FOOTER
+\*-----------------------------------*/
+.icon-atasfoot{
+  background-color:var(--bg-secondary);
+  padding: 5px;
+  max-width: 200px;
+  margin: auto;
+  border-radius: 25px 25px 0 0;
+}
+.icona-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.icona-footer a{
+  color: var(--color-primary); /* Sesuaikan dengan warna utama Anda */
+  font-size: 20px; /* Ukuran ikon */
+  transition: color 0.3s ease;
+}
 
+.icona-footer a:hover {
+  color: var(--raw-seinna);
+}
 
 
 
@@ -871,6 +894,23 @@ main { overflow-x: hidden; }
   color: var(--raw-seinna);
 }
 
+.social-links {
+  display: none;
+  margin-left: auto;
+  justify-content: center;
+  gap: 25px; /* Jarak antara ikon */
+  margin-right: 10px;
+}
+
+.social-links .social-icon {
+  color: var(--color-primary); /* Sesuaikan dengan warna utama Anda */
+  font-size: 20px; /* Ukuran ikon */
+  transition: color 0.3s ease; /* Animasi transisi saat hover */
+}
+
+.social-links .social-icon:hover {
+  color: var(--raw-seinna); /* Warna saat ikon di-hover */
+}
 
 
 
@@ -943,7 +983,7 @@ main { overflow-x: hidden; }
   margin: -10px 0;
   text-align: left;
   grid-column: span 2;
-  border: 2px solid #ffffff;
+  /* border: 2px solid #ffffff; */
   border-radius: 15px;
   padding: 10px;
 }
@@ -1042,6 +1082,12 @@ main { overflow-x: hidden; }
     max-width: 450px;
     margin-inline: auto;
   }
+
+
+/* 
+FOOTER
+*/
+
 
 }
 
@@ -1337,6 +1383,22 @@ main { overflow-x: hidden; }
 
   .footer .logo { margin-bottom: 0; }
 
+
+
+  /* ATAS FOOTER */
+  .icon-atasfoot{
+    display: none;
+  }
+
+
+  /* 
+FOOTER
+*/
+  .social-links {
+    display: flex;
+  }
+
+
 }
 
 
@@ -1379,6 +1441,9 @@ main { overflow-x: hidden; }
   }
 
 }
+
+
+
 /**
  * responsive for larger than 1200px screen
  */
@@ -1423,3 +1488,4 @@ main { overflow-x: hidden; }
   .about-banner { max-width: 450px; }
 
 }
+
